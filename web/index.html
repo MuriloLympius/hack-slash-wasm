@@ -11,10 +11,35 @@
   html, body { margin: 0; height: 100%; background: #0e0c13; overflow: hidden; }
   canvas { display: block; width: 100vw; height: 100vh; height: 100dvh; touch-action: none; user-select: none;
            -webkit-user-select: none; -webkit-touch-callout: none; }
+  #pb { position: fixed; top: clamp(72px, calc(min(100vw, 100dvh) * 0.2 + 10px), 146px); right: 16px; width: 44px; height: 44px;  /* abaixo do minimapa */
+        border-radius: 50%; border: 0; background: #00000066; color: #fff; font: 800 16px system-ui, sans-serif; letter-spacing: 1px; }
+  #menu { position: fixed; inset: 0; display: none; place-items: center; background: #07050acc; color: #f0ecf8;
+          font: 600 16px system-ui, sans-serif; user-select: none; -webkit-user-select: none; }
+  #menu.on { display: grid; }
+  #menu .box { width: min(340px, calc(100vw - 32px)); display: grid; gap: 14px; }
+  #menu h1 { margin: 0 0 4px; font-size: 30px; font-weight: 800; text-align: center; letter-spacing: 2px; }
+  #menu button { min-height: 46px; border: 0; border-radius: 10px; background: #2a2436; color: #f0ecf8; font: inherit; font-weight: 800; }
+  #menu button:focus-visible { outline: 2px solid #f0ecf8; }
+  #menu .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 40px; }
+  #menu input[type=range] { width: 55%; accent-color: #d0c8e0; }
+  #menu input[type=checkbox] { width: 24px; height: 24px; accent-color: #d0c8e0; }
+  #menu small { color: #a59db8; text-align: center; font-weight: 500; }
 </style>
 </head>
 <body>
 <canvas id="c" aria-label="Jogo hack and slash"></canvas>
+<button id="pb" aria-label="Pausar">II</button>
+<div id="menu" role="dialog" aria-modal="true" aria-label="Pausa">
+  <div class="box">
+    <h1>PAUSA</h1>
+    <button id="mContinuar">Continuar</button>
+    <label class="row">Volume <input id="mVol" type="range" min="0" max="100" step="5"></label>
+    <label class="row">Tremor de tela <input id="mTremor" type="checkbox"></label>
+    <label class="row">Vibração <input id="mVibra" type="checkbox"></label>
+    <button id="mRecomecar">Recomeçar run</button>
+    <small>Esc ou P pausa e continua</small>
+  </div>
+</div>
 <script type="module" src="main.js"></script>
 </body>
 </html>

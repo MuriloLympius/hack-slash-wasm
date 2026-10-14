@@ -22,10 +22,36 @@ function resize() {
 addEventListener('resize', resize);
 resize();
 
+// ---------------------------------------------------------------- opções e pausa
+// Opções ficam no navegador (localStorage pode falhar em aba privada: aí valem os padrões).
+const opts = { vol: 80, tremor: true, vibra: true };
+try { Object.assign(opts, JSON.parse(localStorage.getItem('hs-opcoes')) || {}); } catch {}
+const saveOpts = () => { try { localStorage.setItem('hs-opcoes', JSON.stringify(opts)); } catch {} };
+const $ = id => document.getElementById(id);
+let paused = false;
+function setPaused(on) {
+  paused = on;
+  $('menu').classList.toggle('on', on);
+  $('pb').style.display = on ? 'none' : '';
+  keys.clear(); mouse.l = mouse.r = false; touch.held.clear(); touch.stick = null;
+  if (ac) on ? ac.suspend() : ac.resume();
+  if (on) $('mContinuar').focus();
+}
+$('mVol').value = opts.vol; $('mTremor').checked = opts.tremor; $('mVibra').checked = opts.vibra;
+$('mVol').oninput = e => { opts.vol = +e.target.value; if (master) master.gain.value = opts.vol / 100; saveOpts(); };
+$('mTremor').onchange = e => { opts.tremor = e.target.checked; saveOpts(); };
+$('mVibra').onchange = e => { opts.vibra = e.target.checked; saveOpts(); };
+$('mContinuar').onclick = () => setPaused(false);
+$('mRecomecar').onclick = () => { g.init((Math.random() * 2 ** 32) >>> 0); setPaused(false); };
+$('pb').onclick = () => setPaused(true);
+document.addEventListener('visibilitychange', () => { if (document.hidden) setPaused(true); });
+
 // ---------------------------------------------------------------- input
 const keys = new Set();
 const mouse = { x: 0, y: 0, l: false, r: false, used: false };
 addEventListener('keydown', e => {
+  if (e.code === 'Escape' || e.code === 'KeyP') { setPaused(!paused); e.preventDefault(); return; }
+  if (paused) return;
   keys.add(e.code);
   if (e.code.startsWith('Arrow') || e.code === 'Space') e.preventDefault();
   unlockAudio();
@@ -82,10 +108,11 @@ addEventListener('pointerup', release);
 addEventListener('pointercancel', release);
 
 // ---------------------------------------------------------------- áudio sintetizado
-let ac, noise;
+let ac, noise, master;
 function unlockAudio() {
-  if (ac) { if (ac.state === 'suspended') ac.resume(); return; }
+  if (ac) { if (ac.state === 'suspended' && !paused) ac.resume(); return; }
   ac = new AudioContext();
+  master = ac.createGain(); master.gain.value = opts.vol / 100; master.connect(ac.destination);
   noise = ac.createBuffer(1, ac.sampleRate * 0.5, ac.sampleRate);
   const d = noise.getChannelData(0);
   for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
@@ -94,7 +121,7 @@ function env(vol, dur) {
   const gn = ac.createGain(), t = ac.currentTime;
   gn.gain.setValueAtTime(vol, t);
   gn.gain.exponentialRampToValueAtTime(0.001, t + dur);
-  gn.connect(ac.destination);
+  gn.connect(master);
   return gn;
 }
 function tone(f0, f1, dur, type, vol) {
@@ -131,8 +158,9 @@ const SFX = {
   17: () => { hiss(0.2, 0.4, 600); tone(90, 40, 0.2, 'sine', 0.3); },
   18: () => tone(1200, 1800, 0.06, 'triangle', 0.08),
   19: () => { tone(1500, 1500, 0.05, 'square', 0.04); tone(2000, 2000, 0.09, 'square', 0.03); },  // moeda
+  20: () => { hiss(0.45, 0.6, 700); tone(140, 35, 0.4, 'sawtooth', 0.22); },  // explosão
 };
-const VIBE = { 2: 18, 4: 70, 10: 60, 17: 25 };  // forte, morte grande, dano, investida na parede
+const VIBE = { 2: 18, 4: 70, 10: 60, 17: 25, 20: 40 };  // forte, morte grande, dano, investida na parede
 
 function handleEvents() {
   const n = g.ev_count();
@@ -144,7 +172,7 @@ function handleEvents() {
     if (ac) SFX[e]?.();
     vibe = Math.max(vibe, VIBE[e] || 0);
   }
-  if (vibe && touch.on) navigator.vibrate?.(vibe);
+  if (vibe && touch.on && opts.vibra) navigator.vibrate?.(vibe);
 }
 
 // ---------------------------------------------------------------- desenho
@@ -158,7 +186,8 @@ function camera() {
   const vw = W / s, vh = H / s, px = g.get(16, 0), py = g.get(17, 0);
   const cx = vw >= RW ? RW / 2 : Math.min(Math.max(px, vw / 2), RW - vw / 2);
   const cy = vh >= RH ? RH / 2 : Math.min(Math.max(py, vh / 2), RH - vh / 2);
-  return { s, cx: cx + g.get(19, 0), cy: cy + g.get(20, 0) };
+  const sh = opts.tremor ? 1 : 0;
+  return { s, cx: cx + g.get(19, 0) * sh, cy: cy + g.get(20, 0) * sh };
 }
 
 function draw(cam) {
@@ -248,8 +277,7 @@ function loop(now) {
     | ((k('KeyR') || touch.tap) << 3);
   for (const bit of touch.held.values()) btn |= bit;
   touch.tap = false;
-  g.frame(dt, W, H, mx, my, ax, ay, btn);
-  handleEvents();
+  if (!paused) { g.frame(dt, W, H, mx, my, ax, ay, btn); handleEvents(); }
   cam = camera();
   draw(cam);
   requestAnimationFrame(loop);
