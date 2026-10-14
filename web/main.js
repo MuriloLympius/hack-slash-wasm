@@ -5,7 +5,7 @@ const LABELS = ['ESPADA', 'MACHADO', 'LANÇA', 'PISTOLA', 'RIFLE', 'ESCOPETA', '
   'LÂMINA DO ECLIPSE', 'MACHADO TECTÔNICO', 'ESCOPETA DO DRAGÃO', 'BOTAS LIGEIRAS', 'CORAÇÃO DE FERRO', 'LUVA DA FÚRIA',
   '+15% de velocidade', '+1 coração máximo', '+25% de dano', 'golpe forte solta uma onda', '3º golpe racha o chão',
   'tiros incendeiam', 'LOJA', 'TESOURO', 'PASSAGEM ABERTA', 'ANDAR',
-  'ESCUDO', 'segure para bloquear; levante na hora para aparar', 'FÚRIA!', 'APARADO!'];  // mesma ordem do enum L_*/D_* em game.c
+  'ESCUDO', 'segure para bloquear; levante na hora para aparar', 'FÚRIA!', 'APARADO!', 'GODRUN'];  // mesma ordem do enum L_*/D_* em game.c
 
 const { instance } = await WebAssembly.instantiate(await (await fetch('game.wasm')).arrayBuffer());
 const g = instance.exports;
@@ -25,7 +25,7 @@ resize();
 
 // ---------------------------------------------------------------- opções e pausa
 // Opções ficam no navegador (localStorage pode falhar em aba privada: aí valem os padrões).
-const opts = { vol: 80, tremor: true, vibra: true, contato: false };
+const opts = { vol: 80, tremor: true, vibra: true, contato: false, god: false };
 try { Object.assign(opts, JSON.parse(localStorage.getItem('hs-opcoes')) || {}); } catch {}
 const saveOpts = () => { try { localStorage.setItem('hs-opcoes', JSON.stringify(opts)); } catch {} };
 const $ = id => document.getElementById(id);
@@ -44,6 +44,12 @@ $('mTremor').onchange = e => { opts.tremor = e.target.checked; saveOpts(); };
 $('mVibra').onchange = e => { opts.vibra = e.target.checked; saveOpts(); };
 $('mContato').checked = opts.contato;
 g.opt(0, opts.contato ? 1 : 0);
+$('mGod').checked = opts.god;
+$('mGod').onchange = e => {  // liga/desliga e recomeça a run para valer
+  opts.god = e.target.checked; g.opt(1, opts.god ? 1 : 0); saveOpts();
+  g.init((Math.random() * 2 ** 32) >>> 0); setPaused(false);
+};
+if (opts.god) { g.opt(1, 1); g.init((Math.random() * 2 ** 32) >>> 0); }
 $('mContato').onchange = e => { opts.contato = e.target.checked; g.opt(0, opts.contato ? 1 : 0); saveOpts(); };
 $('mContinuar').onclick = () => setPaused(false);
 $('mRecomecar').onclick = () => { g.init((Math.random() * 2 ** 32) >>> 0); setPaused(false); };
