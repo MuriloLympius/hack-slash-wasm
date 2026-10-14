@@ -5,7 +5,9 @@ const LABELS = ['ESPADA', 'MACHADO', 'LANÇA', 'PISTOLA', 'RIFLE', 'ESCOPETA', '
   'LÂMINA DO ECLIPSE', 'MACHADO TECTÔNICO', 'ESCOPETA DO DRAGÃO', 'BOTAS LIGEIRAS', 'CORAÇÃO DE FERRO', 'LUVA DA FÚRIA',
   '+15% de velocidade', '+1 coração máximo', '+25% de dano', 'golpe forte solta uma onda', '3º golpe racha o chão',
   'tiros incendeiam', 'LOJA', 'TESOURO', 'PASSAGEM ABERTA', 'ANDAR',
-  'ESCUDO', 'segure para bloquear; levante na hora para aparar', 'FÚRIA!', 'APARADO!', 'GODRUN'];  // mesma ordem do enum L_*/D_* em game.c
+  'ESCUDO', 'segure para bloquear; levante na hora para aparar', 'FÚRIA!', 'APARADO!', 'GODRUN',
+  'ESPADA DE CHOQUE', '3º golpe marca o chão; o próximo liga as marcas com um raio',
+  'ADAGAS', '6 golpes rápidos com veneno; o último teleporta e apunhala'];  // mesma ordem do enum L_*/D_* em game.c
 
 const { instance } = await WebAssembly.instantiate(await (await fetch('game.wasm')).arrayBuffer());
 const g = instance.exports;
@@ -175,6 +177,9 @@ const SFX = {
   22: () => { tone(1800, 2400, 0.08, 'triangle', 0.14); tone(900, 1800, 0.18, 'sine', 0.1); },  // aparar
   23: () => { tone(60, 30, 1.0, 'sawtooth', 0.3); hiss(0.9, 0.5, 1200); tone(1200, 300, 0.6, 'square', 0.06); },  // fúria
   24: () => tone(500 + Math.random() * 50, 900, 0.06, 'triangle', 0.06),       // nível de carga
+  25: () => { hiss(0.25, 0.35, 6000); tone(1400, 200, 0.2, 'sawtooth', 0.08); },  // raio
+  26: () => { tone(300, 1500, 0.08, 'sine', 0.1); hiss(0.08, 0.15, 4000); },      // teleporte das adagas
+  27: () => tone(220, 520, 0.12, 'triangle', 0.07),                               // antecipação do golpe final
 };
 const VIBE = { 2: 18, 4: 70, 10: 60, 17: 25, 20: 40, 21: 30, 22: 25, 23: 160 };  // forte, morte grande, dano, investida na parede
 
