@@ -25,7 +25,7 @@ resize();
 
 // ---------------------------------------------------------------- opções e pausa
 // Opções ficam no navegador (localStorage pode falhar em aba privada: aí valem os padrões).
-const opts = { vol: 80, tremor: true, vibra: true };
+const opts = { vol: 80, tremor: true, vibra: true, contato: false };
 try { Object.assign(opts, JSON.parse(localStorage.getItem('hs-opcoes')) || {}); } catch {}
 const saveOpts = () => { try { localStorage.setItem('hs-opcoes', JSON.stringify(opts)); } catch {} };
 const $ = id => document.getElementById(id);
@@ -42,6 +42,9 @@ $('mVol').value = opts.vol; $('mTremor').checked = opts.tremor; $('mVibra').chec
 $('mVol').oninput = e => { opts.vol = +e.target.value; if (master) master.gain.value = opts.vol / 100; saveOpts(); };
 $('mTremor').onchange = e => { opts.tremor = e.target.checked; saveOpts(); };
 $('mVibra').onchange = e => { opts.vibra = e.target.checked; saveOpts(); };
+$('mContato').checked = opts.contato;
+g.opt(0, opts.contato ? 1 : 0);
+$('mContato').onchange = e => { opts.contato = e.target.checked; g.opt(0, opts.contato ? 1 : 0); saveOpts(); };
 $('mContinuar').onclick = () => setPaused(false);
 $('mRecomecar').onclick = () => { g.init((Math.random() * 2 ** 32) >>> 0); setPaused(false); };
 $('pb').onclick = () => setPaused(true);
@@ -65,7 +68,9 @@ cv.addEventListener('contextmenu', e => e.preventDefault());
 const touch = { on: false, stick: null, held: new Map(), tap: false };
 const buttons = () => {
   const R = Math.max(34, Math.min(62, Math.min(W, H) * 0.11));
+  const escudo = g.get(39, 0) === 9;
   return [
+    ...(escudo ? [] : [{ bit: 16, label: 'RECARGA', x: W - R * 3.9, y: H - R * 2.75, r: R * 0.55, col: '#d0c8e0' }]),
     { bit: 1, label: 'GOLPE', x: W - R * 1.5, y: H - R * 1.6, r: R * 1.15, col: '#46e0ff' },
     { bit: 2, label: g.get(39, 0) === 9 ? 'ESCUDO' : 'TIRO', x: W - R * 3.9, y: H - R * 1.1, r: R * 0.9, col: '#ffe066' },
     { bit: 4, label: 'DASH', x: W - R * 1.3, y: H - R * 4.1, r: R * 0.8, col: '#b06cff' },
@@ -279,7 +284,7 @@ function loop(now) {
     ay = (mouse.y - H / 2) / cam.s + cam.cy - g.get(17, 0);
   }
   let btn = (mouse.l || k('KeyJ')) | ((mouse.r || k('KeyK')) << 1) | ((k('Space') || k('ShiftLeft') || k('KeyL')) << 2)
-    | ((k('KeyR') || touch.tap) << 3);
+    | (touch.tap << 3) | (k('KeyR') << 4);
   for (const bit of touch.held.values()) btn |= bit;
   touch.tap = false;
   if (!paused) { g.frame(dt, W, H, mx, my, ax, ay, btn); handleEvents(); }
