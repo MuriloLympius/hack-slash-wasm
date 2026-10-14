@@ -4,7 +4,8 @@ const LABELS = ['ESPADA', 'MACHADO', 'LANÇA', 'PISTOLA', 'RIFLE', 'ESCOPETA', '
   'VOCÊ MORREU', 'VITÓRIA!', 'toque ou R para jogar de novo', 'RECARREGANDO', 'escolha sua arma',
   'LÂMINA DO ECLIPSE', 'MACHADO TECTÔNICO', 'ESCOPETA DO DRAGÃO', 'BOTAS LIGEIRAS', 'CORAÇÃO DE FERRO', 'LUVA DA FÚRIA',
   '+15% de velocidade', '+1 coração máximo', '+25% de dano', 'golpe forte solta uma onda', '3º golpe racha o chão',
-  'tiros incendeiam', 'LOJA', 'TESOURO', 'PASSAGEM ABERTA', 'ANDAR'];  // mesma ordem do enum L_*/D_* em game.c
+  'tiros incendeiam', 'LOJA', 'TESOURO', 'PASSAGEM ABERTA', 'ANDAR',
+  'ESCUDO', 'segure para bloquear; levante na hora para aparar', 'FÚRIA!', 'APARADO!'];  // mesma ordem do enum L_*/D_* em game.c
 
 const { instance } = await WebAssembly.instantiate(await (await fetch('game.wasm')).arrayBuffer());
 const g = instance.exports;
@@ -66,7 +67,7 @@ const buttons = () => {
   const R = Math.max(34, Math.min(62, Math.min(W, H) * 0.11));
   return [
     { bit: 1, label: 'GOLPE', x: W - R * 1.5, y: H - R * 1.6, r: R * 1.15, col: '#46e0ff' },
-    { bit: 2, label: 'TIRO', x: W - R * 3.9, y: H - R * 1.1, r: R * 0.9, col: '#ffe066' },
+    { bit: 2, label: g.get(39, 0) === 9 ? 'ESCUDO' : 'TIRO', x: W - R * 3.9, y: H - R * 1.1, r: R * 0.9, col: '#ffe066' },
     { bit: 4, label: 'DASH', x: W - R * 1.3, y: H - R * 4.1, r: R * 0.8, col: '#b06cff' },
   ];
 };
@@ -159,8 +160,12 @@ const SFX = {
   18: () => tone(1200, 1800, 0.06, 'triangle', 0.08),
   19: () => { tone(1500, 1500, 0.05, 'square', 0.04); tone(2000, 2000, 0.09, 'square', 0.03); },  // moeda
   20: () => { hiss(0.45, 0.6, 700); tone(140, 35, 0.4, 'sawtooth', 0.22); },  // explosão
+  21: () => { tone(220, 110, 0.12, 'square', 0.12); hiss(0.1, 0.25, 2500); },    // bloqueio
+  22: () => { tone(1800, 2400, 0.08, 'triangle', 0.14); tone(900, 1800, 0.18, 'sine', 0.1); },  // aparar
+  23: () => { tone(60, 30, 1.0, 'sawtooth', 0.3); hiss(0.9, 0.5, 1200); tone(1200, 300, 0.6, 'square', 0.06); },  // fúria
+  24: () => tone(500 + Math.random() * 50, 900, 0.06, 'triangle', 0.06),       // nível de carga
 };
-const VIBE = { 2: 18, 4: 70, 10: 60, 17: 25, 20: 40 };  // forte, morte grande, dano, investida na parede
+const VIBE = { 2: 18, 4: 70, 10: 60, 17: 25, 20: 40, 21: 30, 22: 25, 23: 160 };  // forte, morte grande, dano, investida na parede
 
 function handleEvents() {
   const n = g.ev_count();
