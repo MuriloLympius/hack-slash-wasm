@@ -7,7 +7,10 @@ const LABELS = ['ESPADA', 'MACHADO', 'LANÇA', 'PISTOLA', 'RIFLE', 'ESCOPETA', '
   'tiros incendeiam', 'LOJA', 'TESOURO', 'PASSAGEM ABERTA', 'ANDAR',
   'ESCUDO', 'segure para bloquear; levante na hora para aparar', 'FÚRIA!', 'APARADO!', 'GODRUN',
   'ESPADA DE CHOQUE', '3º golpe marca o chão; o próximo liga as marcas com um raio',
-  'ADAGAS', '6 golpes rápidos com veneno; o último teleporta e apunhala'];  // mesma ordem do enum L_*/D_* em game.c
+  'ADAGAS', '6 golpes rápidos com veneno; o último teleporta e apunhala',
+  'MARTELO', 'giro, pancada reta que atordoa e giro que arremessa contra a parede',
+  'LUVA DE BOXE', 'soco, jab, soco e um uppercut que avança',
+  'FOICE', 'ceifada, puxão que atordoa e ceifada de perto mais forte'];  // mesma ordem do enum L_*/D_* em game.c
 
 const { instance } = await WebAssembly.instantiate(await (await fetch('game.wasm')).arrayBuffer());
 const g = instance.exports;
@@ -157,7 +160,7 @@ const SFX = {
   2: () => { hiss(0.14, 0.45, 1400); tone(150, 40, 0.16, 'sawtooth', 0.18); },
   3: () => { hiss(0.09, 0.25, 2200); tone(520, 140, 0.08, 'triangle', 0.1); },
   4: () => { hiss(0.5, 0.6, 900); tone(120, 30, 0.5, 'sawtooth', 0.25); },
-  5: () => hiss(0.07, 0.12, 5000),
+  5: () => SWING[g.get(61, 0)]?.(),
   6: () => { hiss(0.06, 0.2, 4000); tone(700, 200, 0.05, 'square', 0.05); },
   7: () => { hiss(0.04, 0.15, 5000); tone(900, 300, 0.03, 'square', 0.03); },
   8: () => { hiss(0.2, 0.45, 1600); tone(200, 50, 0.15, 'sawtooth', 0.12); },
@@ -180,6 +183,16 @@ const SFX = {
   25: () => { hiss(0.25, 0.35, 6000); tone(1400, 200, 0.2, 'sawtooth', 0.08); },  // raio
   26: () => { tone(300, 1500, 0.08, 'sine', 0.1); hiss(0.08, 0.15, 4000); },      // teleporte das adagas
   27: () => tone(220, 520, 0.12, 'triangle', 0.07),                               // antecipação do golpe final
+};
+// som do golpe pela forma da arma branca (W_SWORD, W_AXE, W_SPEAR, W_DAGGERS=11, W_HAMMER, W_GLOVE, W_SCYTHE)
+const SWING = {
+  0: () => { hiss(0.08, 0.14, 5500); tone(1400, 700, 0.06, 'sine', 0.03); },        // espada: sibila
+  1: () => { hiss(0.14, 0.2, 900); tone(140, 70, 0.12, 'triangle', 0.08); },        // machado: vuum grave
+  2: () => hiss(0.05, 0.14, 6500),                                                 // lança: corte seco
+  11: () => { hiss(0.04, 0.08, 7000); tone(2400, 1800, 0.04, 'triangle', 0.03); tone(3000, 2500, 0.05, 'sine', 0.02); },  // adagas: tilintam
+  12: () => { hiss(0.18, 0.22, 600); tone(90, 50, 0.16, 'sawtooth', 0.07); },       // martelo: peso
+  13: () => { hiss(0.06, 0.12, 1800); tone(220, 120, 0.05, 'square', 0.04); },      // luva: estalo abafado
+  14: () => { hiss(0.22, 0.14, 3000); tone(900, 400, 0.2, 'sine', 0.03); },         // foice: assobio longo
 };
 const VIBE = { 2: 18, 4: 70, 10: 60, 17: 25, 20: 40, 21: 30, 22: 25, 23: 160 };  // forte, morte grande, dano, investida na parede
 
