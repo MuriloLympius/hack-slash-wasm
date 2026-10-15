@@ -40,7 +40,7 @@ resize();
 
 // ---------------------------------------------------------------- opções e pausa
 // Opções ficam no navegador (localStorage pode falhar em aba privada: aí valem os padrões).
-const opts = { vol: 80, tremor: true, vibra: true, contato: false, god: false };
+const opts = { vol: 80, tremor: true, vibra: true, contato: false, god: false, fps: false };
 try { Object.assign(opts, JSON.parse(localStorage.getItem('hs-opcoes')) || {}); } catch {}
 const saveOpts = () => { try { localStorage.setItem('hs-opcoes', JSON.stringify(opts)); } catch {} };
 const $ = id => document.getElementById(id);
@@ -57,6 +57,8 @@ $('mVol').value = opts.vol; $('mTremor').checked = opts.tremor; $('mVibra').chec
 $('mVol').oninput = e => { opts.vol = +e.target.value; if (master) master.gain.value = opts.vol / 100; saveOpts(); };
 $('mTremor').onchange = e => { opts.tremor = e.target.checked; saveOpts(); };
 $('mVibra').onchange = e => { opts.vibra = e.target.checked; saveOpts(); };
+$('mFps').checked = opts.fps;
+$('mFps').onchange = e => { opts.fps = e.target.checked; saveOpts(); };
 $('mContato').checked = opts.contato;
 g.opt(0, opts.contato ? 1 : 0);
 $('mGod').checked = opts.god;
@@ -234,6 +236,9 @@ function camera() {
   return { s, cx: cx + g.get(19, 0) * sh, cy: cy + g.get(20, 0) * sh };
 }
 
+// Imagem da parte estática da sala (comandos 10..11), refeita quando a chave ou a escala muda. SALA_M: folga das portas.
+const sala = { cv: document.createElement('canvas'), chave: -1, k: 0 }, SALA_M = 24;
+const vinhetas = new Map();  // vinheta pronta por raio, cor e tamanho de tela
 function draw(cam) {
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.fillStyle = '#0e0c13';
@@ -243,46 +248,79 @@ function draw(cam) {
   ctx.textBaseline = 'middle';
   ctx.lineCap = 'round';
   const n = g.cmd_count(), f = new Float32Array(instance.exports.memory.buffer, g.cmd_ptr(), n * 9);
+  let alvo = ctx;  // onde desenhar: a tela, ou a imagem da sala enquanto ela é refeita
   for (let o = 0; o < n * 9; o += 9) {
     const t = f[o], x = f[o + 1], y = f[o + 2], a = f[o + 3], b = f[o + 4], c = f[o + 5], d = f[o + 6];
     const col = css(f[o + 7]);
-    ctx.globalAlpha = f[o + 8];
+    alvo.globalAlpha = f[o + 8];
     switch (t) {
-      case 0: ctx.fillStyle = col; ctx.beginPath(); ctx.ellipse(x, y, Math.max(a, 0), Math.max(b, 0), c, 0, TAU); ctx.fill(); break;
+      case 0: alvo.fillStyle = col; alvo.beginPath(); alvo.ellipse(x, y, Math.max(a, 0), Math.max(b, 0), c, 0, TAU); alvo.fill(); break;
       case 1:
-        ctx.fillStyle = col;
-        if (c === 0) { ctx.fillRect(x - a / 2, y - b / 2, a, b); break; }
-        ctx.save(); ctx.translate(x, y); ctx.rotate(c); ctx.fillRect(-a / 2, -b / 2, a, b); ctx.restore();
+        alvo.fillStyle = col;
+        if (c === 0) { alvo.fillRect(x - a / 2, y - b / 2, a, b); break; }
+        alvo.save(); alvo.translate(x, y); alvo.rotate(c); alvo.fillRect(-a / 2, -b / 2, a, b); alvo.restore();
         break;
-      case 2: ctx.strokeStyle = col; ctx.lineWidth = c; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(a, b); ctx.stroke(); break;
-      case 3: ctx.strokeStyle = col; ctx.lineWidth = b; ctx.lineCap = 'butt'; ctx.beginPath(); ctx.arc(x, y, Math.max(a, 0), c, d); ctx.stroke(); ctx.lineCap = 'round'; break;
+      case 2: alvo.strokeStyle = col; alvo.lineWidth = c; alvo.beginPath(); alvo.moveTo(x, y); alvo.lineTo(a, b); alvo.stroke(); break;
+      case 3: alvo.strokeStyle = col; alvo.lineWidth = b; alvo.lineCap = 'butt'; alvo.beginPath(); alvo.arc(x, y, Math.max(a, 0), c, d); alvo.stroke(); alvo.lineCap = 'round'; break;
       case 4: case 6: {
         const txt = t === 4 ? String(Math.round(a * 10) / 10) : LABELS[a];
-        ctx.font = t === 6 && b >= 26 ? `900 ${b}px Cinzel, Georgia, serif` : `800 ${b}px system-ui, sans-serif`;  // títulos: fonte de cartomante
-        ctx.strokeStyle = '#0b0910'; ctx.lineWidth = b * 0.22; ctx.lineCap = 'round';
-        ctx.strokeText(txt, x, y);
-        ctx.fillStyle = col; ctx.fillText(txt, x, y);
+        alvo.font = t === 6 && b >= 26 ? `900 ${b}px Cinzel, Georgia, serif` : `800 ${b}px system-ui, sans-serif`;  // títulos: fonte de cartomante
+        alvo.strokeStyle = '#0b0910'; alvo.lineWidth = b * 0.22; alvo.lineCap = 'round';
+        alvo.strokeText(txt, x, y);
+        alvo.fillStyle = col; alvo.fillText(txt, x, y);
         break;
       }
-      case 5: ctx.setTransform(dpr, 0, 0, dpr, 0, 0); break;
-      case 8: ctx.fillStyle = col; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(a, b); ctx.lineTo(c, d); ctx.fill(); break;  // triângulo
+      case 5: alvo.setTransform(dpr, 0, 0, dpr, 0, 0); break;
+      case 8: alvo.fillStyle = col; alvo.beginPath(); alvo.moveTo(x, y); alvo.lineTo(a, b); alvo.lineTo(c, d); alvo.fill(); break;  // triângulo
       case 9: {  // brilho: luz suave somada à cena (velas, halos); a = raio
-        const gr = ctx.createRadialGradient(x, y, 0, x, y, Math.max(a, 1));
+        const gr = alvo.createRadialGradient(x, y, 0, x, y, Math.max(a, 1));
         gr.addColorStop(0, col); gr.addColorStop(1, col + '00');
-        ctx.globalCompositeOperation = 'lighter'; ctx.fillStyle = gr;
-        ctx.fillRect(x - a, y - a, a * 2, a * 2); ctx.globalCompositeOperation = 'source-over';
+        alvo.globalCompositeOperation = 'lighter'; alvo.fillStyle = gr;
+        alvo.fillRect(x - a, y - a, a * 2, a * 2); alvo.globalCompositeOperation = 'source-over';
+        break;
+      }
+      case 10: {  // início da parte estática da sala (a = chave): desenha uma vez numa imagem e reaproveita
+        const k = dpr * cam.s;
+        if (sala.chave === a && sala.k === k) { while (f[o + 9] !== 11) o += 9; break; }  // igual: pula até o fim
+        sala.chave = a; sala.k = k;
+        sala.cv.width = Math.ceil((RW + 2 * SALA_M) * k); sala.cv.height = Math.ceil((RH + 2 * SALA_M) * k);
+        alvo = sala.cv.getContext('2d');
+        alvo.setTransform(k, 0, 0, k, SALA_M * k, SALA_M * k); alvo.lineCap = 'round';
+        break;
+      }
+      case 11: {  // fim da parte estática: copia a imagem pixel a pixel (sem escala nem meio pixel, que custam caro)
+        alvo = ctx; ctx.globalAlpha = 1;
+        const m = ctx.getTransform();
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.drawImage(sala.cv, Math.round(m.e - SALA_M * sala.k), Math.round(m.f - SALA_M * sala.k));
+        ctx.setTransform(m);
         break;
       }
       case 7: {  // vinheta: transparente no centro, cor nas bordas (a = raio interno relativo)
-        const r = Math.hypot(W, H) / 2, gr = ctx.createRadialGradient(x, y, r * a, x, y, r);
-        gr.addColorStop(0, col + '00'); gr.addColorStop(1, col);
-        ctx.fillStyle = gr; ctx.fillRect(0, 0, W, H);
+        // o degradê na tela inteira a cada quadro era o que mais pesava; vira imagem, refeita só se a tela mudar
+        const chave = `${a}|${col}|${cv.width}|${cv.height}`;
+        let im = vinhetas.get(chave);
+        if (!im) {
+          im = document.createElement('canvas'); im.width = cv.width; im.height = cv.height;
+          const v = im.getContext('2d'); v.scale(dpr, dpr);
+          const r = Math.hypot(W, H) / 2, gr = v.createRadialGradient(x, y, r * a, x, y, r);
+          gr.addColorStop(0, col + '00'); gr.addColorStop(1, col);
+          v.fillStyle = gr; v.fillRect(0, 0, W, H);
+          if (vinhetas.size > 8) vinhetas.clear();  // trocou de tamanho de tela: as antigas não servem mais
+          vinhetas.set(chave, im);
+        }
+        alvo.setTransform(1, 0, 0, 1, 0, 0); alvo.drawImage(im, 0, 0); alvo.setTransform(dpr, 0, 0, dpr, 0, 0);
         break;
       }
     }
   }
   ctx.globalAlpha = 1;
   if (touch.on) drawTouch();
+  if (opts.fps) {  // contador de fps (menu de pausa): média do último meio segundo e o pior quadro
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.globalAlpha = 0.85;
+    ctx.font = '700 13px system-ui, sans-serif'; ctx.textAlign = 'right'; ctx.lineWidth = 3; ctx.strokeStyle = '#0b0910';
+    ctx.strokeText(fps.txt, W - 10, H - 12); ctx.fillStyle = '#f2e6d0'; ctx.fillText(fps.txt, W - 10, H - 12); ctx.globalAlpha = 1;
+  }
 }
 
 function drawTouch() {
@@ -309,8 +347,12 @@ function drawTouch() {
 
 // ---------------------------------------------------------------- laço
 let last = performance.now(), cam = camera();
+const fps = { n: 0, t: 0, pior: 0, txt: '' };
 function loop(now) {
-  const dt = Math.min((now - last) / 1000, 0.05);
+  const real = now - last;
+  fps.n++; fps.t += real; fps.pior = Math.max(fps.pior, real);
+  if (fps.t >= 500) { fps.txt = `${Math.round(fps.n * 1000 / fps.t)} fps · pior ${Math.round(fps.pior)} ms`; fps.n = fps.t = fps.pior = 0; }
+  const dt = Math.min(real / 1000, 0.05);
   last = now;
   const k = c => keys.has(c);
   let mx = (k('KeyD') || k('ArrowRight')) - (k('KeyA') || k('ArrowLeft'));
