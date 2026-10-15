@@ -10,7 +10,7 @@ const LABELS = ['ESPADA', 'MACHADO', 'LANÇA', 'PISTOLA', 'RIFLE', 'ESCOPETA', '
   'ADAGAS', '6 golpes rápidos com veneno; o último teleporta e apunhala',
   'MARTELO', 'giro, pancada reta que atordoa e giro que arremessa contra a parede',
   'LUVA DE BOXE', 'soco, jab, soco e um uppercut que avança',
-  'FOICE', 'ceifada, puxão que atordoa e ceifada de perto mais forte'];  // mesma ordem do enum L_*/D_* em game.c
+  'FOICE', 'puxão: parado joga o inimigo para trás; andando, chuta'];  // mesma ordem do enum L_*/D_* em game.c
 
 const { instance } = await WebAssembly.instantiate(await (await fetch('game.wasm')).arrayBuffer());
 const g = instance.exports;
