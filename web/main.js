@@ -5,7 +5,7 @@ const LABELS = ['ESPADA', 'MACHADO', 'LANÇA', 'PISTOLA', 'RIFLE', 'ESCOPETA', '
   'LÂMINA DO ECLIPSE', 'MACHADO TECTÔNICO', 'ESCOPETA DO DRAGÃO', 'BOTAS LIGEIRAS', 'CORAÇÃO DE FERRO', 'LUVA DA FÚRIA',
   '+15% de velocidade', '+1 coração máximo', '+25% de dano', 'golpe forte solta uma onda', '3º golpe racha o chão',
   'tiros incendeiam', 'LOJA', 'TESOURO', 'PASSAGEM ABERTA', 'ANDAR',
-  'ESCUDO', 'segure para bloquear; levante na hora para aparar', 'FÚRIA!', 'APARADO!', 'GODRUN',
+  'ESCUDO', 'toque na hora para aparar; aparou, pode de novo', 'FÚRIA!', 'APARADO!', 'GODRUN',
   'ESPADA DE CHOQUE', '3º golpe marca o chão; o próximo liga as marcas com um raio',
   'ADAGAS', '6 golpes rápidos com veneno; o último teleporta e apunhala',
   'MARTELO', 'giro, pancada reta que atordoa e giro que arremessa contra a parede',
