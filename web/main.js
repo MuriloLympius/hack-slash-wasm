@@ -10,7 +10,17 @@ const LABELS = ['ESPADA', 'MACHADO', 'LANÇA', 'PISTOLA', 'RIFLE', 'ESCOPETA', '
   'ADAGAS', '6 golpes rápidos com veneno; o último teleporta e apunhala',
   'MARTELO', 'giro, pancada reta que atordoa e giro que arremessa contra a parede',
   'LUVA DE BOXE', 'soco, jab, soco e um uppercut que avança',
-  'FOICE', 'puxão que atordoa; pós-dash arremessa para trás'];  // mesma ordem do enum L_*/D_* em game.c
+  'FOICE', 'puxão que atordoa; pós-dash arremessa para trás',
+  'CAVALEIRO', 'o dash volta mais rápido', 'CORAÇÃO', 'corações curam o dobro e caem mais',
+  'LUA', 'janela de aparar 50% maior', 'FOICE (CARTA)', 'às vezes executa o inimigo fraco',
+  'PÁSSAROS', 'aparar solta 3 pássaros', 'SOL', 'golpes põem fogo',
+  'CAIXÃO', 'quem morre explode em ossos; −1 coração máximo', 'CRIANÇA', 'o 1º golpe em cada inimigo dá o dobro',
+  'LÍRIOS', 'tomar dano tira só metade da fúria', 'ÂNCORA', 'tomar dano não te empurra',
+  'COBRA', 'golpes e tiros envenenam', 'CHICOTE', 'o golpe final do combo ecoa', 'URSO', 'golpe forte 40% mais pesado',
+  'BÊNÇÃO', '3 de Copas: +1 coração e sala limpa cura', 'FORTUNA', '3 de Ouros: loja 25% mais barata e +1 moeda por sala',
+  'LÂMINA', '3 de Espadas: +20% de dano corpo a corpo', 'CAOS', '3 de Paus: veneno, fogo e atordoamento duram mais',
+  'COLHEITA', 'Foice + Caixão: a execução enche a fúria', 'FEBRE', 'Cobra + Sol: veneno e fogo juntos explodem',
+  'REVOADA', 'Pássaros + Lua: o dobro de pássaros', 'INABALÁVEL', 'Urso + Âncora: golpe forte faz o chão tremer'];  // mesma ordem do enum L_*/D_* em game.c
 
 const { instance } = await WebAssembly.instantiate(await (await fetch('game.wasm')).arrayBuffer());
 const g = instance.exports;
