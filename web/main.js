@@ -265,6 +265,14 @@ function draw(cam) {
         break;
       }
       case 5: ctx.setTransform(dpr, 0, 0, dpr, 0, 0); break;
+      case 8: ctx.fillStyle = col; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(a, b); ctx.lineTo(c, d); ctx.fill(); break;  // triângulo
+      case 9: {  // brilho: luz suave somada à cena (velas, halos); a = raio
+        const gr = ctx.createRadialGradient(x, y, 0, x, y, Math.max(a, 1));
+        gr.addColorStop(0, col); gr.addColorStop(1, col + '00');
+        ctx.globalCompositeOperation = 'lighter'; ctx.fillStyle = gr;
+        ctx.fillRect(x - a, y - a, a * 2, a * 2); ctx.globalCompositeOperation = 'source-over';
+        break;
+      }
       case 7: {  // vinheta: transparente no centro, cor nas bordas (a = raio interno relativo)
         const r = Math.hypot(W, H) / 2, gr = ctx.createRadialGradient(x, y, r * a, x, y, r);
         gr.addColorStop(0, col + '00'); gr.addColorStop(1, col);
