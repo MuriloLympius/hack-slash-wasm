@@ -258,7 +258,7 @@ function draw(cam) {
       case 3: ctx.strokeStyle = col; ctx.lineWidth = b; ctx.lineCap = 'butt'; ctx.beginPath(); ctx.arc(x, y, Math.max(a, 0), c, d); ctx.stroke(); ctx.lineCap = 'round'; break;
       case 4: case 6: {
         const txt = t === 4 ? String(Math.round(a * 10) / 10) : LABELS[a];
-        ctx.font = `800 ${b}px system-ui, sans-serif`;
+        ctx.font = t === 6 && b >= 26 ? `900 ${b}px Cinzel, Georgia, serif` : `800 ${b}px system-ui, sans-serif`;  // títulos: fonte de cartomante
         ctx.strokeStyle = '#0b0910'; ctx.lineWidth = b * 0.22; ctx.lineCap = 'round';
         ctx.strokeText(txt, x, y);
         ctx.fillStyle = col; ctx.fillText(txt, x, y);
