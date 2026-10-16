@@ -20,13 +20,11 @@
           overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; }  /* rola quando não cabe (celular deitado) */
   #menu.on { display: flex; }
   #menu .box { width: min(340px, calc(100vw - 32px)); display: grid; gap: 14px; margin: auto; padding: 16px 0; }  /* margin auto: centra se couber */
-  @media (max-height: 520px) and (min-width: 560px) {  /* celular deitado: duas colunas e os dois botões lado a lado no topo */
-    #menu .box { width: min(720px, calc(100vw - 32px)); grid-template-columns: 1fr 1fr; gap: 6px 28px; padding: 10px 0; font-size: 14px; }
-    #menu h1 { grid-column: 1 / -1; font-size: 22px; margin: 0; order: -3; }
-    #mContinuar { order: -2; } #mRecomecar { order: -1; }
-    #menu button { min-height: 36px; }
-    #menu .row { min-height: 32px; }
-    #menu small { display: none; }  /* atalhos de teclado: não servem no celular */
+  @media (max-height: 520px) and (min-width: 560px) {  /* tela baixa e larga: duas colunas, cabe sem rolar */
+    #menu .box { width: min(680px, calc(100vw - 32px)); grid-template-columns: 1fr 1fr; gap: 8px 28px; }
+    #menu h1, #menu small, #mContinuar, #mRecomecar { grid-column: 1 / -1; }
+    #menu h1 { font-size: 24px; margin: 0; }
+    #menu button { min-height: 42px; }
   }
   #menu h1 { margin: 0 0 4px; font: 900 30px Cinzel, Georgia, serif; text-align: center; letter-spacing: 2px; color: #ffd34a; }
   #menu button { min-height: 46px; border: 0; border-radius: 10px; background: #2a2436; color: #f0ecf8; font: inherit; font-weight: 800; }
@@ -48,10 +46,10 @@
     <label class="row">Tremor de tela <input id="mTremor" type="checkbox"></label>
     <label class="row">Vibração <input id="mVibra" type="checkbox"></label>
     <label class="row">Mostrar fps <input id="mFps" type="checkbox"></label>
-    <label class="row">Modo fácil: inimigos fracos e lentos <input id="mFacil" type="checkbox"></label>
     <label class="row">Inimigos ferem ao encostar (antigo) <input id="mContato" type="checkbox"></label>
     <label class="row">Godrun: sem dano, 999 moedas, todos os itens (recomeça a run) <input id="mGod" type="checkbox"></label>
     <button id="mRecomecar">Recomeçar run</button>
+    <button id="mMetricas">Exportar métricas (JSON)</button>
     <small>Esc ou P pausa e continua · R recarrega</small>
   </div>
 </div>
