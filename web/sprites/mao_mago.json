@@ -1,0 +1,64 @@
+{
+ "frames": [
+  {
+   "filename": "mao_mago mao 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 16,
+    "h": 16
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 16,
+    "h": 16
+   },
+   "sourceSize": {
+    "w": 16,
+    "h": 16
+   },
+   "duration": 100
+  }
+ ],
+ "meta": {
+  "app": "sprites-ia",
+  "version": "0.1.0",
+  "image": "mao_mago.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 16,
+   "h": 16
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "mao",
+    "from": 0,
+    "to": 0,
+    "direction": "forward"
+   }
+  ],
+  "layers": [],
+  "slices": [
+   {
+    "name": "centro",
+    "color": "#00ff00ff",
+    "keys": [
+     {
+      "frame": 0,
+      "bounds": {
+       "x": 8,
+       "y": 8,
+       "w": 1,
+       "h": 1
+      }
+     }
+    ]
+   }
+  ],
+  "px_por_m": 29.6296
+ }
+}
