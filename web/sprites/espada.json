@@ -1,0 +1,79 @@
+{
+ "frames": [
+  {
+   "filename": "espada icone 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 54
+   },
+   "duration": 100
+  }
+ ],
+ "meta": {
+  "app": "sprites-ia",
+  "version": "0.1.0",
+  "image": "espada.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 54,
+   "h": 54
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "icone",
+    "from": 0,
+    "to": 0,
+    "direction": "forward"
+   }
+  ],
+  "layers": [],
+  "slices": [
+   {
+    "name": "pega",
+    "color": "#0000ffff",
+    "keys": [
+     {
+      "frame": 0,
+      "bounds": {
+       "x": 9,
+       "y": 26,
+       "w": 1,
+       "h": 1
+      }
+     }
+    ]
+   },
+   {
+    "name": "ponta",
+    "color": "#0000ffff",
+    "keys": [
+     {
+      "frame": 0,
+      "bounds": {
+       "x": 49,
+       "y": 26,
+       "w": 1,
+       "h": 1
+      }
+     }
+    ]
+   }
+  ],
+  "px_por_m": 29.6296
+ }
+}
