@@ -1,0 +1,243 @@
+{
+ "frames": [
+  {
+   "filename": "barril dir_E 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 100
+  },
+  {
+   "filename": "barril dir_N 0.png",
+   "frame": {
+    "x": 0,
+    "y": 24,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 100
+  },
+  {
+   "filename": "barril dir_NE 0.png",
+   "frame": {
+    "x": 0,
+    "y": 48,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 100
+  },
+  {
+   "filename": "barril dir_NW 0.png",
+   "frame": {
+    "x": 0,
+    "y": 72,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 100
+  },
+  {
+   "filename": "barril dir_S 0.png",
+   "frame": {
+    "x": 0,
+    "y": 96,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 100
+  },
+  {
+   "filename": "barril dir_SE 0.png",
+   "frame": {
+    "x": 0,
+    "y": 120,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 100
+  },
+  {
+   "filename": "barril dir_SW 0.png",
+   "frame": {
+    "x": 0,
+    "y": 144,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 100
+  },
+  {
+   "filename": "barril dir_W 0.png",
+   "frame": {
+    "x": 0,
+    "y": 168,
+    "w": 24,
+    "h": 24
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 24
+   },
+   "sourceSize": {
+    "w": 24,
+    "h": 24
+   },
+   "duration": 100
+  }
+ ],
+ "meta": {
+  "app": "sprites-ia",
+  "version": "0.1.0",
+  "image": "barril.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 24,
+   "h": 192
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "dir_E",
+    "from": 0,
+    "to": 0,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_N",
+    "from": 1,
+    "to": 1,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_NE",
+    "from": 2,
+    "to": 2,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_NW",
+    "from": 3,
+    "to": 3,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_S",
+    "from": 4,
+    "to": 4,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_SE",
+    "from": 5,
+    "to": 5,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_SW",
+    "from": 6,
+    "to": 6,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_W",
+    "from": 7,
+    "to": 7,
+    "direction": "forward"
+   }
+  ],
+  "layers": [],
+  "slices": []
+ }
+}

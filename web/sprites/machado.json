@@ -1,0 +1,321 @@
+{
+ "frames": [
+  {
+   "filename": "machado dir_E 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 54
+   },
+   "duration": 100
+  },
+  {
+   "filename": "machado dir_N 0.png",
+   "frame": {
+    "x": 0,
+    "y": 54,
+    "w": 54,
+    "h": 54
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 54
+   },
+   "duration": 100
+  },
+  {
+   "filename": "machado dir_NE 0.png",
+   "frame": {
+    "x": 0,
+    "y": 108,
+    "w": 54,
+    "h": 54
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 54
+   },
+   "duration": 100
+  },
+  {
+   "filename": "machado dir_NW 0.png",
+   "frame": {
+    "x": 0,
+    "y": 162,
+    "w": 54,
+    "h": 54
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 54
+   },
+   "duration": 100
+  },
+  {
+   "filename": "machado dir_S 0.png",
+   "frame": {
+    "x": 0,
+    "y": 216,
+    "w": 54,
+    "h": 54
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 54
+   },
+   "duration": 100
+  },
+  {
+   "filename": "machado dir_SE 0.png",
+   "frame": {
+    "x": 0,
+    "y": 270,
+    "w": 54,
+    "h": 54
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 54
+   },
+   "duration": 100
+  },
+  {
+   "filename": "machado dir_SW 0.png",
+   "frame": {
+    "x": 0,
+    "y": 324,
+    "w": 54,
+    "h": 54
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 54
+   },
+   "duration": 100
+  },
+  {
+   "filename": "machado dir_W 0.png",
+   "frame": {
+    "x": 0,
+    "y": 378,
+    "w": 54,
+    "h": 54
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 54
+   },
+   "duration": 100
+  },
+  {
+   "filename": "machado icone 0.png",
+   "frame": {
+    "x": 0,
+    "y": 432,
+    "w": 54,
+    "h": 54
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 54,
+    "h": 54
+   },
+   "sourceSize": {
+    "w": 54,
+    "h": 54
+   },
+   "duration": 100
+  }
+ ],
+ "meta": {
+  "app": "sprites-ia",
+  "version": "0.1.0",
+  "image": "machado.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 54,
+   "h": 486
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "dir_E",
+    "from": 0,
+    "to": 0,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_N",
+    "from": 1,
+    "to": 1,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_NE",
+    "from": 2,
+    "to": 2,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_NW",
+    "from": 3,
+    "to": 3,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_S",
+    "from": 4,
+    "to": 4,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_SE",
+    "from": 5,
+    "to": 5,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_SW",
+    "from": 6,
+    "to": 6,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_W",
+    "from": 7,
+    "to": 7,
+    "direction": "forward"
+   },
+   {
+    "name": "icone",
+    "from": 8,
+    "to": 8,
+    "direction": "forward"
+   }
+  ],
+  "layers": [],
+  "slices": [
+   {
+    "name": "pega",
+    "color": "#0000ffff",
+    "keys": [
+     {
+      "frame": 0,
+      "bounds": {
+       "x": 28,
+       "y": 26,
+       "w": 1,
+       "h": 1
+      }
+     },
+     {
+      "frame": 8,
+      "bounds": {
+       "x": 28,
+       "y": 26,
+       "w": 1,
+       "h": 1
+      }
+     }
+    ]
+   },
+   {
+    "name": "ponta",
+    "color": "#0000ffff",
+    "keys": [
+     {
+      "frame": 0,
+      "bounds": {
+       "x": 49,
+       "y": 23,
+       "w": 1,
+       "h": 1
+      }
+     },
+     {
+      "frame": 8,
+      "bounds": {
+       "x": 49,
+       "y": 23,
+       "w": 1,
+       "h": 1
+      }
+     }
+    ]
+   }
+  ],
+  "px_por_m": 29.6296
+ }
+}

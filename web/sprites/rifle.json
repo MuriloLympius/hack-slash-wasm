@@ -1,0 +1,321 @@
+{
+ "frames": [
+  {
+   "filename": "rifle dir_E 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 50,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 50,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 50,
+    "h": 50
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rifle dir_N 0.png",
+   "frame": {
+    "x": 0,
+    "y": 50,
+    "w": 50,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 50,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 50,
+    "h": 50
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rifle dir_NE 0.png",
+   "frame": {
+    "x": 0,
+    "y": 100,
+    "w": 50,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 50,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 50,
+    "h": 50
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rifle dir_NW 0.png",
+   "frame": {
+    "x": 0,
+    "y": 150,
+    "w": 50,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 50,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 50,
+    "h": 50
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rifle dir_S 0.png",
+   "frame": {
+    "x": 0,
+    "y": 200,
+    "w": 50,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 50,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 50,
+    "h": 50
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rifle dir_SE 0.png",
+   "frame": {
+    "x": 0,
+    "y": 250,
+    "w": 50,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 50,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 50,
+    "h": 50
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rifle dir_SW 0.png",
+   "frame": {
+    "x": 0,
+    "y": 300,
+    "w": 50,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 50,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 50,
+    "h": 50
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rifle dir_W 0.png",
+   "frame": {
+    "x": 0,
+    "y": 350,
+    "w": 50,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 50,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 50,
+    "h": 50
+   },
+   "duration": 100
+  },
+  {
+   "filename": "rifle icone 0.png",
+   "frame": {
+    "x": 0,
+    "y": 400,
+    "w": 50,
+    "h": 50
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 50,
+    "h": 50
+   },
+   "sourceSize": {
+    "w": 50,
+    "h": 50
+   },
+   "duration": 100
+  }
+ ],
+ "meta": {
+  "app": "sprites-ia",
+  "version": "0.1.0",
+  "image": "rifle.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 50,
+   "h": 450
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "dir_E",
+    "from": 0,
+    "to": 0,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_N",
+    "from": 1,
+    "to": 1,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_NE",
+    "from": 2,
+    "to": 2,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_NW",
+    "from": 3,
+    "to": 3,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_S",
+    "from": 4,
+    "to": 4,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_SE",
+    "from": 5,
+    "to": 5,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_SW",
+    "from": 6,
+    "to": 6,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_W",
+    "from": 7,
+    "to": 7,
+    "direction": "forward"
+   },
+   {
+    "name": "icone",
+    "from": 8,
+    "to": 8,
+    "direction": "forward"
+   }
+  ],
+  "layers": [],
+  "slices": [
+   {
+    "name": "pega",
+    "color": "#0000ffff",
+    "keys": [
+     {
+      "frame": 0,
+      "bounds": {
+       "x": 3,
+       "y": 24,
+       "w": 1,
+       "h": 1
+      }
+     },
+     {
+      "frame": 8,
+      "bounds": {
+       "x": 3,
+       "y": 24,
+       "w": 1,
+       "h": 1
+      }
+     }
+    ]
+   },
+   {
+    "name": "ponta",
+    "color": "#0000ffff",
+    "keys": [
+     {
+      "frame": 0,
+      "bounds": {
+       "x": 46,
+       "y": 24,
+       "w": 1,
+       "h": 1
+      }
+     },
+     {
+      "frame": 8,
+      "bounds": {
+       "x": 46,
+       "y": 24,
+       "w": 1,
+       "h": 1
+      }
+     }
+    ]
+   }
+  ],
+  "px_por_m": 29.6296
+ }
+}
