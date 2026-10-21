@@ -1,0 +1,321 @@
+{
+ "frames": [
+  {
+   "filename": "tectonico dir_E 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 56
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 56
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "tectonico dir_N 0.png",
+   "frame": {
+    "x": 0,
+    "y": 56,
+    "w": 56,
+    "h": 56
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 56
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "tectonico dir_NE 0.png",
+   "frame": {
+    "x": 0,
+    "y": 112,
+    "w": 56,
+    "h": 56
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 56
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "tectonico dir_NW 0.png",
+   "frame": {
+    "x": 0,
+    "y": 168,
+    "w": 56,
+    "h": 56
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 56
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "tectonico dir_S 0.png",
+   "frame": {
+    "x": 0,
+    "y": 224,
+    "w": 56,
+    "h": 56
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 56
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "tectonico dir_SE 0.png",
+   "frame": {
+    "x": 0,
+    "y": 280,
+    "w": 56,
+    "h": 56
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 56
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "tectonico dir_SW 0.png",
+   "frame": {
+    "x": 0,
+    "y": 336,
+    "w": 56,
+    "h": 56
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 56
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "tectonico dir_W 0.png",
+   "frame": {
+    "x": 0,
+    "y": 392,
+    "w": 56,
+    "h": 56
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 56
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 56
+   },
+   "duration": 100
+  },
+  {
+   "filename": "tectonico icone 0.png",
+   "frame": {
+    "x": 0,
+    "y": 448,
+    "w": 56,
+    "h": 56
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 56,
+    "h": 56
+   },
+   "sourceSize": {
+    "w": 56,
+    "h": 56
+   },
+   "duration": 100
+  }
+ ],
+ "meta": {
+  "app": "sprites-ia",
+  "version": "0.1.0",
+  "image": "tectonico.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 56,
+   "h": 504
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "dir_E",
+    "from": 0,
+    "to": 0,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_N",
+    "from": 1,
+    "to": 1,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_NE",
+    "from": 2,
+    "to": 2,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_NW",
+    "from": 3,
+    "to": 3,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_S",
+    "from": 4,
+    "to": 4,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_SE",
+    "from": 5,
+    "to": 5,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_SW",
+    "from": 6,
+    "to": 6,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_W",
+    "from": 7,
+    "to": 7,
+    "direction": "forward"
+   },
+   {
+    "name": "icone",
+    "from": 8,
+    "to": 8,
+    "direction": "forward"
+   }
+  ],
+  "layers": [],
+  "slices": [
+   {
+    "name": "pega",
+    "color": "#0000ffff",
+    "keys": [
+     {
+      "frame": 0,
+      "bounds": {
+       "x": 11,
+       "y": 28,
+       "w": 1,
+       "h": 1
+      }
+     },
+     {
+      "frame": 8,
+      "bounds": {
+       "x": 11,
+       "y": 28,
+       "w": 1,
+       "h": 1
+      }
+     }
+    ]
+   },
+   {
+    "name": "ponta",
+    "color": "#0000ffff",
+    "keys": [
+     {
+      "frame": 0,
+      "bounds": {
+       "x": 51,
+       "y": 28,
+       "w": 1,
+       "h": 1
+      }
+     },
+     {
+      "frame": 8,
+      "bounds": {
+       "x": 51,
+       "y": 28,
+       "w": 1,
+       "h": 1
+      }
+     }
+    ]
+   }
+  ],
+  "px_por_m": 29.6296
+ }
+}

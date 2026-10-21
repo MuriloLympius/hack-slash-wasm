@@ -1,0 +1,467 @@
+{
+ "frames": [
+  {
+   "filename": "bau aberto_dir_E 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bau aberto_dir_N 0.png",
+   "frame": {
+    "x": 0,
+    "y": 32,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bau aberto_dir_NE 0.png",
+   "frame": {
+    "x": 0,
+    "y": 64,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bau aberto_dir_NW 0.png",
+   "frame": {
+    "x": 0,
+    "y": 96,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bau aberto_dir_S 0.png",
+   "frame": {
+    "x": 0,
+    "y": 128,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bau aberto_dir_SE 0.png",
+   "frame": {
+    "x": 0,
+    "y": 160,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bau aberto_dir_SW 0.png",
+   "frame": {
+    "x": 0,
+    "y": 192,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bau aberto_dir_W 0.png",
+   "frame": {
+    "x": 0,
+    "y": 224,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bau fechado_dir_E 0.png",
+   "frame": {
+    "x": 0,
+    "y": 256,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bau fechado_dir_N 0.png",
+   "frame": {
+    "x": 0,
+    "y": 288,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bau fechado_dir_NE 0.png",
+   "frame": {
+    "x": 0,
+    "y": 320,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bau fechado_dir_NW 0.png",
+   "frame": {
+    "x": 0,
+    "y": 352,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bau fechado_dir_S 0.png",
+   "frame": {
+    "x": 0,
+    "y": 384,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bau fechado_dir_SE 0.png",
+   "frame": {
+    "x": 0,
+    "y": 416,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bau fechado_dir_SW 0.png",
+   "frame": {
+    "x": 0,
+    "y": 448,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  },
+  {
+   "filename": "bau fechado_dir_W 0.png",
+   "frame": {
+    "x": 0,
+    "y": 480,
+    "w": 32,
+    "h": 32
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 32,
+    "h": 32
+   },
+   "sourceSize": {
+    "w": 32,
+    "h": 32
+   },
+   "duration": 100
+  }
+ ],
+ "meta": {
+  "app": "sprites-ia",
+  "version": "0.1.0",
+  "image": "bau.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 32,
+   "h": 512
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "aberto_dir_E",
+    "from": 0,
+    "to": 0,
+    "direction": "forward"
+   },
+   {
+    "name": "aberto_dir_N",
+    "from": 1,
+    "to": 1,
+    "direction": "forward"
+   },
+   {
+    "name": "aberto_dir_NE",
+    "from": 2,
+    "to": 2,
+    "direction": "forward"
+   },
+   {
+    "name": "aberto_dir_NW",
+    "from": 3,
+    "to": 3,
+    "direction": "forward"
+   },
+   {
+    "name": "aberto_dir_S",
+    "from": 4,
+    "to": 4,
+    "direction": "forward"
+   },
+   {
+    "name": "aberto_dir_SE",
+    "from": 5,
+    "to": 5,
+    "direction": "forward"
+   },
+   {
+    "name": "aberto_dir_SW",
+    "from": 6,
+    "to": 6,
+    "direction": "forward"
+   },
+   {
+    "name": "aberto_dir_W",
+    "from": 7,
+    "to": 7,
+    "direction": "forward"
+   },
+   {
+    "name": "fechado_dir_E",
+    "from": 8,
+    "to": 8,
+    "direction": "forward"
+   },
+   {
+    "name": "fechado_dir_N",
+    "from": 9,
+    "to": 9,
+    "direction": "forward"
+   },
+   {
+    "name": "fechado_dir_NE",
+    "from": 10,
+    "to": 10,
+    "direction": "forward"
+   },
+   {
+    "name": "fechado_dir_NW",
+    "from": 11,
+    "to": 11,
+    "direction": "forward"
+   },
+   {
+    "name": "fechado_dir_S",
+    "from": 12,
+    "to": 12,
+    "direction": "forward"
+   },
+   {
+    "name": "fechado_dir_SE",
+    "from": 13,
+    "to": 13,
+    "direction": "forward"
+   },
+   {
+    "name": "fechado_dir_SW",
+    "from": 14,
+    "to": 14,
+    "direction": "forward"
+   },
+   {
+    "name": "fechado_dir_W",
+    "from": 15,
+    "to": 15,
+    "direction": "forward"
+   }
+  ],
+  "layers": [],
+  "slices": []
+ }
+}

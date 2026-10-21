@@ -1,0 +1,321 @@
+{
+ "frames": [
+  {
+   "filename": "eclipse dir_E 0.png",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 64,
+    "h": 64
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 64,
+    "h": 64
+   },
+   "sourceSize": {
+    "w": 64,
+    "h": 64
+   },
+   "duration": 100
+  },
+  {
+   "filename": "eclipse dir_N 0.png",
+   "frame": {
+    "x": 0,
+    "y": 64,
+    "w": 64,
+    "h": 64
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 64,
+    "h": 64
+   },
+   "sourceSize": {
+    "w": 64,
+    "h": 64
+   },
+   "duration": 100
+  },
+  {
+   "filename": "eclipse dir_NE 0.png",
+   "frame": {
+    "x": 0,
+    "y": 128,
+    "w": 64,
+    "h": 64
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 64,
+    "h": 64
+   },
+   "sourceSize": {
+    "w": 64,
+    "h": 64
+   },
+   "duration": 100
+  },
+  {
+   "filename": "eclipse dir_NW 0.png",
+   "frame": {
+    "x": 0,
+    "y": 192,
+    "w": 64,
+    "h": 64
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 64,
+    "h": 64
+   },
+   "sourceSize": {
+    "w": 64,
+    "h": 64
+   },
+   "duration": 100
+  },
+  {
+   "filename": "eclipse dir_S 0.png",
+   "frame": {
+    "x": 0,
+    "y": 256,
+    "w": 64,
+    "h": 64
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 64,
+    "h": 64
+   },
+   "sourceSize": {
+    "w": 64,
+    "h": 64
+   },
+   "duration": 100
+  },
+  {
+   "filename": "eclipse dir_SE 0.png",
+   "frame": {
+    "x": 0,
+    "y": 320,
+    "w": 64,
+    "h": 64
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 64,
+    "h": 64
+   },
+   "sourceSize": {
+    "w": 64,
+    "h": 64
+   },
+   "duration": 100
+  },
+  {
+   "filename": "eclipse dir_SW 0.png",
+   "frame": {
+    "x": 0,
+    "y": 384,
+    "w": 64,
+    "h": 64
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 64,
+    "h": 64
+   },
+   "sourceSize": {
+    "w": 64,
+    "h": 64
+   },
+   "duration": 100
+  },
+  {
+   "filename": "eclipse dir_W 0.png",
+   "frame": {
+    "x": 0,
+    "y": 448,
+    "w": 64,
+    "h": 64
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 64,
+    "h": 64
+   },
+   "sourceSize": {
+    "w": 64,
+    "h": 64
+   },
+   "duration": 100
+  },
+  {
+   "filename": "eclipse icone 0.png",
+   "frame": {
+    "x": 0,
+    "y": 512,
+    "w": 64,
+    "h": 64
+   },
+   "rotated": false,
+   "trimmed": false,
+   "spriteSourceSize": {
+    "x": 0,
+    "y": 0,
+    "w": 64,
+    "h": 64
+   },
+   "sourceSize": {
+    "w": 64,
+    "h": 64
+   },
+   "duration": 100
+  }
+ ],
+ "meta": {
+  "app": "sprites-ia",
+  "version": "0.1.0",
+  "image": "eclipse.png",
+  "format": "RGBA8888",
+  "size": {
+   "w": 64,
+   "h": 576
+  },
+  "scale": "1",
+  "frameTags": [
+   {
+    "name": "dir_E",
+    "from": 0,
+    "to": 0,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_N",
+    "from": 1,
+    "to": 1,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_NE",
+    "from": 2,
+    "to": 2,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_NW",
+    "from": 3,
+    "to": 3,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_S",
+    "from": 4,
+    "to": 4,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_SE",
+    "from": 5,
+    "to": 5,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_SW",
+    "from": 6,
+    "to": 6,
+    "direction": "forward"
+   },
+   {
+    "name": "dir_W",
+    "from": 7,
+    "to": 7,
+    "direction": "forward"
+   },
+   {
+    "name": "icone",
+    "from": 8,
+    "to": 8,
+    "direction": "forward"
+   }
+  ],
+  "layers": [],
+  "slices": [
+   {
+    "name": "pega",
+    "color": "#0000ffff",
+    "keys": [
+     {
+      "frame": 0,
+      "bounds": {
+       "x": 3,
+       "y": 32,
+       "w": 1,
+       "h": 1
+      }
+     },
+     {
+      "frame": 8,
+      "bounds": {
+       "x": 3,
+       "y": 32,
+       "w": 1,
+       "h": 1
+      }
+     }
+    ]
+   },
+   {
+    "name": "ponta",
+    "color": "#0000ffff",
+    "keys": [
+     {
+      "frame": 0,
+      "bounds": {
+       "x": 74,
+       "y": 32,
+       "w": 1,
+       "h": 1
+      }
+     },
+     {
+      "frame": 8,
+      "bounds": {
+       "x": 74,
+       "y": 32,
+       "w": 1,
+       "h": 1
+      }
+     }
+    ]
+   }
+  ],
+  "px_por_m": 29.6296
+ }
+}
